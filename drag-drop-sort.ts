@@ -285,20 +285,19 @@ export class DragAndDropListLib {
   /*-=====_| BOOTSTRAP AND SHUTDOWN |_=====-*/
   /*       -------------------------        */
 
-  bootstrap (data: { callBackFn, elementRef }) {
+  bootstrap (data: { callBackFn }) {
     if (this.dragInitialized) return;
 
-    const { callBackFn, elementRef } = data;
+    const { callBackFn } = data;
 
     //starting utils
-    this.element = elementRef;
-    this.queryAll = this.element.nativeElement.querySelectorAll.bind(this.element.nativeElement);
+    this.queryAll = document.querySelectorAll.bind(document);
 
     //setting callback
     this.callBackfn = callBackFn;
 
     //setting body
-    this.$body = this.element.nativeElement.closest('body')
+    this.$body = document.body;
 
     //reset everything to prevent bugs
     this.shutdown();
@@ -467,7 +466,6 @@ export class DragAndDropListLib {
     this.$box.classList.remove('is-dragging');
 
     //removing the mouseup eventListener itself
-    // $body = this.element
     this.$body.removeEventListener('mouseup',  this.mouseupListener);
 
     //remove the drag divisors
