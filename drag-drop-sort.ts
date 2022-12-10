@@ -1,8 +1,3 @@
-import { Injectable } from '@angular/core';
-@Injectable({
-  providedIn: 'root'
-})
-
 export class DragAndDropListLib {
   /*        __----------------------------__       */
   /*-=====_| INITIALIZING GLOBAL VARIABLES |_=====-*/
